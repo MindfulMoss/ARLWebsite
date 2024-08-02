@@ -1,0 +1,548 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+body {
+    background-color: black;
+    color: white; /* Optional: To ensure text is visible against the black background */
+    margin: 0;
+    padding: 0;
+    position: relative;
+    min-height: 100vh;
+}
+
+.light-source {
+    width: 150px;
+    height: 150px;
+    background-color: white;
+    border-radius: 50%; /* This makes the div a circle */
+    position: absolute;
+    top: -20px; /* Adjust this value as needed */
+    right: 0px; /* Adjust this value as needed */
+    box-shadow: 0 0 50px 20px rgba(255, 255, 255, 0.5); /* Optional: To add a glowing effect */
+    filter: blur(100px); /* This adds a blur effect to the circle */
+}
+
+header {
+    position: fixed;
+    top: 25px;
+    left: 0;
+    right: 10px;
+    padding: 10px 100px 100px; /* Adjust padding for smaller screens */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+
+.navigation a {
+    position: relative;
+    font-family: 'Outfit', sans-serif;
+    color: white;
+    text-decoration: none;
+    font-size: 18px; /* Adjust font size for smaller screens */
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-left: 40px; /* Adjust margin for smaller screens */
+}
+
+.navigation a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: white;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform .5s;
+}
+
+.navigation a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+.contactbtn{
+    font-family: 'Outfit', sans-serif;
+    font-size: 18px; /* Adjust the font size as needed */
+    font-weight: 500;
+    border-radius: 15px;
+    background: #FFF;
+    width: 120px;
+    height: 50px;
+    margin-left: 40px; /* Adjust margin for smaller screens */
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: none; /* Remove any border that could appear as shadow */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.contactbtn:hover {
+    transform: scale(1.1); /* Slightly increase the size of the button */
+    background-color: #ddd; /* Change the background color on hover */
+}
+
+.contactbtn:active {
+    transition: transform 0.1s ease, background-color 0.3s ease; /* Faster scale on click */
+    transform: scale(0.9); /* Slightly decrease the size of the button on click */
+    background-color: #ccc; /* Change the background color on click */
+}
+
+.wrapper {
+    position: relative; /* Ensure positioning does not affect scrolling */
+    top: 280px; /* Adjust positioning if needed */
+    left: 80px; /* Adjust positioning if needed */
+    height: auto; /* Content will expand based on content */
+    display: flex;
+    flex-direction: column; /* Ensure flex items are in a column */
+    justify-content: flex-start;
+    padding: 20px; /* Add padding for spacing */
+    box-sizing: border-box; /* Ensure padding does not affect total width/height */
+    margin-bottom: 150px;
+}
+
+.logo {
+    width: 400px; /* Set the width of the logo */
+    height: auto; /* Maintain the aspect ratio */
+}
+
+.headline {
+    font-family: 'Outfit', sans-serif;
+    max-width: 750px; /* Adjust this value as needed */
+    font-size: 3.5em; /* Adjust the font size as needed */
+    line-height: 1.2; /* Adjust line height for better readability */
+    margin-bottom: 1px; /* Add space between the headline and paragraph */
+    font-weight: 600;
+}
+
+#about-us {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    height: 100vh;       /* Full viewport height */
+    padding: 100px;       /* Optional: Add padding around the section */
+    box-sizing: border-box; /* Include padding in height calculations */
+    margin-top: 500px;
+}
+
+.title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 3em;          /* Adjust font size as needed */
+    line-height: 1.2;        /* Adjust line height for better readability */
+    font-weight: 600;
+    margin-bottom: 20px;     /* Add space between the title and other content */
+    text-align: center;      /* Center the title text */
+}
+
+#wrapper-container {
+    display: flex;                /* Arrange children side by side */
+    justify-content: space-between; /* Distribute space between wrappers */
+    width: 100%;                  /* Full width of the parent section */
+    max-width: 1400px;            /* Optional: Max width of the wrapper container */
+}
+
+#wrapper-container2 {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* 2 parts for the horizontal box and 1 part for the vertical box */
+    grid-template-rows: auto auto; /* Two rows: one for the horizontal box, one for the square boxes */
+    gap: 20px; /* Space between boxes */
+    padding: 20px; /* Optional: Add padding around the container */
+    grid-template-areas: 
+        "horizontal-box vertical-box"
+        "square-box1 vertical-box"
+        "square-box2 vertical-box";
+}
+
+.horizontal-box {
+    grid-area: horizontal-box;
+    background-color: #f4f4f4; /* Light background color */
+    border: 1px solid #ddd; /* Border around the box */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Space inside the box */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
+    text-align: center; /* Center text inside the box */
+    max-width: 200px; /* Limit width */
+    width: 100%; /* Ensure it takes full available width */
+}
+
+.vertical-box {
+    grid-area: vertical-box;
+    background-color: #f4f4f4; /* Light background color */
+    border: 1px solid #ddd; /* Border around the box */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Space inside the box */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
+    text-align: center; /* Center text inside the box */
+    max-width: 150px; /* Limit width */
+    width: 100%; /* Ensure it takes full available width */
+}
+
+.square-box {
+    background-color: #f4f4f4; /* Light background color */
+    border: 1px solid #ddd; /* Border around the box */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Space inside the box */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
+    text-align: center; /* Center text inside the box */
+    width: 100%; /* Ensure it takes full available width */
+    height: 100px; /* Set a specific height */
+}
+
+/* Ensure square boxes are square */
+.square-box {
+    aspect-ratio: 1 / 1; /* Ensure the height is equal to the width */
+}
+
+/* Specify grid areas for the square boxes */
+.square-box1 {
+    grid-area: square-box1; /* Use the grid area name for positioning */
+}
+
+.square-box2 {
+    grid-area: square-box2; /* Use the grid area name for positioning */
+}
+
+
+
+
+.wrapper2 {
+    flex: 1;                      /* Allow both wrappers to grow equally */
+    margin: 0 10px;               /* Optional: Add space between the wrappers */
+    padding: 20px;                /* Optional: Add padding inside the wrappers */
+    box-sizing: border-box;      /* Include padding in width calculations */
+}
+
+.who-we-are {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 1.3em; /* Adjust font size for smaller screens */
+    margin-bottom: 20px;         /* Add space below the heading */
+}
+
+.para {
+    padding-left: 5px;
+    margin-bottom: 10px;         /* Add space between paragraphs */
+}
+
+.box {
+    border-radius: 20px;
+    width: 150px;
+    height: 40px; /* Increased height to better accommodate text */
+    display: flex; /* Enable Flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    text-align: center; /* Center text inside the h2 element */
+    margin-bottom: 20px; /* Space between boxes */
+    margin-top: 50px; /* Space between boxes */
+    background-color: #212121; /* Background color */
+    color: #fff; /* Text color for better contrast */
+    padding: 10px; /* Optional: padding inside the box */
+}
+
+.wrapper3 {
+    flex: 1;                      /* Allow both wrappers to grow equally */
+    margin-top: 20px; /* Space between boxes */
+    padding: 20px;                /* Optional: Add padding inside the wrappers */
+    box-sizing: border-box;      /* Include padding in width calculations */
+}
+
+.image {
+    position: absolute; /* Stack images on top of each other */
+    max-width: 30%; /* Ensure the image does not exceed the wrapper's width */
+    height: auto; /* Adjust if needed */
+    opacity: 0; /* Start hidden */
+    visibility: hidden; /* Ensure hidden images are not clickable */
+    transition: opacity 1s ease-in-out, visibility 1s ease-in-out; /* Smooth transition for opacity and visibility */
+    margin-bottom: 10px; /* Add space between images */
+    border-radius: 15px;
+}
+
+.image.active {
+    opacity: 1; /* Show the active image */
+    visibility: visible; /* Make the active image visible */
+    max-width: 30%; /* Ensure the image does not exceed the wrapper's width */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 10px; /* Add space between images */
+    border-radius: 15px;
+}
+
+.indicators {
+    display: flex;
+    transform: translateY(400px); /* Center horizontally */
+    width: 100%;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #555; /* Grey dark for non-selected */
+    margin: 0 5px;
+}
+
+.indicator.active {
+    background-color: #fff; /* White for selected */
+}
+
+
+.glow:hover {
+    color: #fff; /* Ensure the text is white */
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #9bfa01, 0 0 30px #9bfa01, 0 0 40px #9bfa01, 0 0 55px #9bfa01, 0 0 75px #9bfa01;
+    transition: text-shadow 0.6s ease;
+}
+
+
+.para {
+    font-family: 'Outfit', sans-serif;
+    max-width: 600px; /* Match the headline's width */
+    font-size: 1em; /* Adjust the font size as needed */
+    line-height: 1.5; /* Adjust line height for better readability */
+    font-weight: 200;
+}
+
+.learnmorebtn {
+    margin-top: 10px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1em; /* Adjust the font size as needed */
+    font-weight: 500;
+    border-radius: 15px;
+    background: #FFF;
+    display: flex;
+    width: 150px;
+    height: 50px;
+    padding: 12px 22px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: none; /* Remove any border that could appear as shadow */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.learnmorebtn:hover {
+    transform: scale(1.1); /* Slightly increase the size of the button */
+    background-color: #ddd; /* Change the background color on hover */
+}
+
+.learnmorebtn:active {
+    transition: transform 0.1s ease, background-color 0.3s ease; /* Faster scale on click */
+    transform: scale(0.9); /* Slightly decrease the size of the button on click */
+    background-color: #ccc; /* Change the background color on click */
+}
+
+.about-section {
+    padding: 50px 20px;
+    background-color: #f4f4f4;
+    color: #333;
+    transition: transform 0.5s ease-in-out;
+    /* Adjust the height and other styles as needed */
+    min-height: 100vh; /* To ensure it occupies full viewport height */
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow-x: hidden; /* Hide horizontal scrolling */
+    overflow-y: auto; /* Allow vertical scrolling */
+}
+
+html {
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+
+/* Custom scrollbar for WebKit browsers */
+::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: #333; /* Background color of the scrollbar track */
+    border-radius: 10px; /* Rounded corners of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #666; /* Color of the scrollbar handle */
+    border-radius: 10px; /* Rounded corners of the scrollbar handle */
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3); /* Optional: Add a shadow for depth */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #999; /* Color when hovering over the scrollbar handle */
+}
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .logo {
+        font-size: 1.2em; /* Smaller font size */
+    }
+
+    .navigation a {
+        font-size: 12px; /* Smaller font size */
+        margin-left: 10px; /* Smaller margin */
+    }
+
+    .light-source {
+        width: 100px; /* Smaller light source */
+        height: 100px; /* Smaller light source */
+        filter: blur(50px); /* Adjust blur effect */
+    }
+
+    .wrapper {
+        left: 50px; /* Adjust position for smaller screens */
+        top: 150px; /* Adjust position for smaller screens */
+    }
+
+    .headline {
+        font-size: 1.5em; /* Smaller font size */
+        margin-bottom: 15px; /* Adjust margin */
+    }
+
+    .para {
+        font-size: 0.9em; /* Smaller font size */
+    }
+
+    .learnmorebtn {
+        width: 120px; /* Smaller button width */
+        height: 40px; /* Smaller button height */
+        font-size: 0.9em; /* Smaller font size */
+        padding: 10px 20px; /* Adjust padding */
+    }
+
+    .contactbtn {
+        width: 90px; /* Smaller button width */
+        height: 35px; /* Smaller button height */
+        font-size: 0.8em; /* Smaller font size */
+        padding: 8px 16px; /* Adjust padding */
+        margin-left: 20px; /* Adjust margin for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navigation a {
+        font-size: 10px; /* Smaller font size */
+        margin-left: 5px; /* Smaller margin */
+    }
+
+    .light-source {
+        width: 80px; /* Smaller light source */
+        height: 80px; /* Smaller light source */
+        filter: blur(40px); /* Adjust blur effect */
+        top: -10px; /* Adjust position */
+        right: 0px; /* Adjust position */
+    }
+
+    .wrapper {
+        left: 20px; /* Adjust position for smaller screens */
+        top: 100px; /* Adjust position for smaller screens */
+    }
+
+    .headline {
+        font-size: 1.2em; /* Smaller font size */
+        margin-bottom: 10px; /* Adjust margin */
+    }
+
+    .para {
+        font-size: 0.8em; /* Smaller font size */
+    }
+
+    .learnmorebtn {
+        width: 100px; /* Even smaller button width */
+        height: 35px; /* Even smaller button height */
+        font-size: 0.8em; /* Smaller font size */
+        padding: 8px 12px; /* Adjust padding */
+    }
+
+    .contactbtn {
+        width: 80px; /* Even smaller button width */
+        height: 30px; /* Even smaller button height */
+        font-size: 0.7em; /* Smaller font size */
+        padding: 6px 12px; /* Adjust padding */
+        margin-left: 10px; /* Adjust margin for smaller screens */
+    }
+}
+
+.wrapper-container2 {
+    display: flex;
+    flex-direction: column; /* Arrange items in a column */
+    align-items: center; /* Center items horizontally */
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 800px; /* Adjust the max-width as needed */
+    min-height: 100vh; /* Ensure it takes at least the full height of the viewport */
+}
+.contact-form {
+    width: 100%;
+    background: #1E1E1E;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.50);
+}
+
+.contact-form h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2em; /* Adjust the font size as needed */
+    font-weight: 500;
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1em; /* Adjust the font size as needed */
+    font-weight: 500;
+    margin-bottom: 15px;
+    
+}
+
+.form-group label {
+
+    display: block;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    font-family: 'Outfit', sans-serif;
+    color: white;color: white;
+    background-color: hsl(0, 0%, 18%);
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1em; /* Adjust the font size as needed */
+    font-weight: 500;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
