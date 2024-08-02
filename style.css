@@ -96,7 +96,7 @@ header {
 
 .wrapper {
     position: relative; /* Ensure positioning does not affect scrolling */
-    top: 280px; /* Adjust positioning if needed */
+    top: 200px; /* Adjust positioning if needed */
     left: 80px; /* Adjust positioning if needed */
     height: auto; /* Content will expand based on content */
     display: flex;
@@ -104,7 +104,7 @@ header {
     justify-content: flex-start;
     padding: 20px; /* Add padding for spacing */
     box-sizing: border-box; /* Ensure padding does not affect total width/height */
-    margin-bottom: 150px;
+    margin-bottom: 10px;
 }
 
 .logo {
@@ -126,9 +126,9 @@ header {
     flex-direction: column;
     align-items: center; /* Center content horizontally */
     height: 100vh;       /* Full viewport height */
-    padding: 100px;       /* Optional: Add padding around the section */
+    padding: 80px;       /* Optional: Add padding around the section */
     box-sizing: border-box; /* Include padding in height calculations */
-    margin-top: 500px;
+    margin-top: 200px;
 }
 
 .title {
@@ -145,18 +145,7 @@ header {
     justify-content: space-between; /* Distribute space between wrappers */
     width: 100%;                  /* Full width of the parent section */
     max-width: 1400px;            /* Optional: Max width of the wrapper container */
-}
-
-#wrapper-container2 {
-    display: grid;
-    grid-template-columns: 2fr 1fr; /* 2 parts for the horizontal box and 1 part for the vertical box */
-    grid-template-rows: auto auto; /* Two rows: one for the horizontal box, one for the square boxes */
-    gap: 20px; /* Space between boxes */
-    padding: 20px; /* Optional: Add padding around the container */
-    grid-template-areas: 
-        "horizontal-box vertical-box"
-        "square-box1 vertical-box"
-        "square-box2 vertical-box";
+    margin-bottom: 500px;
 }
 
 .horizontal-box {
@@ -274,7 +263,7 @@ header {
 
 .indicators {
     display: flex;
-    transform: translateY(400px); /* Center horizontally */
+    transform: translateY(320px); /* Center horizontally */
     width: 100%;
 }
 
@@ -337,6 +326,7 @@ header {
     transform: scale(0.9); /* Slightly decrease the size of the button on click */
     background-color: #ccc; /* Change the background color on click */
 }
+
 
 .about-section {
     padding: 50px 20px;
@@ -424,6 +414,34 @@ html {
         padding: 8px 16px; /* Adjust padding */
         margin-left: 20px; /* Adjust margin for smaller screens */
     }
+
+    .image {
+        position: absolute; /* Stack images on top of each other */
+        max-width: 10%; /* Ensure the image does not exceed the wrapper's width */
+        height: auto; /* Adjust if needed */
+        opacity: 0; /* Start hidden */
+        visibility: hidden; /* Ensure hidden images are not clickable */
+        transition: opacity 1s ease-in-out, visibility 1s ease-in-out; /* Smooth transition for opacity and visibility */
+        margin-bottom: 10px; /* Add space between images */
+        border-radius: 15px;
+    }
+    
+    .image.active {
+        opacity: 1; /* Show the active image */
+        visibility: visible; /* Make the active image visible */
+        max-width: 10%; /* Ensure the image does not exceed the wrapper's width */
+        height: auto; /* Maintain aspect ratio */
+        margin-bottom: 10px; /* Add space between images */
+        border-radius: 15px;
+    }
+
+    .indicator {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background-color: #555; /* Grey dark for non-selected */
+        margin: 0 5px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -476,19 +494,22 @@ html {
 }
 
 .wrapper-container2 {
+    padding-top: 80px;
     display: flex;
     flex-direction: column; /* Arrange items in a column */
     align-items: center; /* Center items horizontally */
-    padding: 20px;
     box-sizing: border-box;
     margin: 0 auto;
-    max-width: 800px; /* Adjust the max-width as needed */
+    max-width: 500px; /* Adjust the max-width as needed */
     min-height: 100vh; /* Ensure it takes at least the full height of the viewport */
 }
 .contact-form {
     width: 100%;
     background: #1E1E1E;
-    padding: 40px;
+    padding-top: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
     border-radius: 10px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.50);
 }
@@ -496,7 +517,7 @@ html {
 .contact-form h2 {
     font-family: 'Outfit', sans-serif;
     font-size: 2em; /* Adjust the font size as needed */
-    font-weight: 500;
+    font-weight: 200;
     text-align: center;
     color: white;
     margin-bottom: 20px;
@@ -511,7 +532,7 @@ html {
 }
 
 .form-group label {
-
+    font-weight: 200;
     display: block;
     color: white;
     margin-bottom: 5px;
@@ -519,6 +540,8 @@ html {
 
 .form-group input,
 .form-group textarea {
+    font-size: 1em; /* Adjust the font size as needed */
+    font-weight: 200;
     font-family: 'Outfit', sans-serif;
     color: white;color: white;
     background-color: hsl(0, 0%, 18%);
@@ -527,6 +550,11 @@ html {
     border: none;
     border-radius: 5px;
     box-sizing: border-box;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end; /* Align button to the right */
 }
 
 button[type="submit"] {
@@ -541,8 +569,16 @@ button[type="submit"] {
     color: rgb(0, 0, 0);
     font-size: 16px;
     cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 button[type="submit"]:hover {
-    background-color: #45a049;
+    background-color: #ffffff;
+    transform: scale(1.05);
+}
+
+button[type="submit"]:active {
+    transition: transform 0.1s ease, background-color 0.3s ease; /* Faster scale on click */
+    transform: scale(0.9); /* Slightly decrease the size of the button on click */
+    background-color: #ccc; /* Change the background color on click */
 }
