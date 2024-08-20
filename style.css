@@ -108,8 +108,10 @@ header {
 }
 
 .logo {
-    width: 400px; /* Set the width of the logo */
+    width: 300px; /* Set the width of the logo */
     height: auto; /* Maintain the aspect ratio */
+    font-family: 'Outfit', sans-serif;
+    color: white;
 }
 
 .headline {
@@ -148,53 +150,247 @@ header {
     margin-bottom: 500px;
 }
 
-.horizontal-box {
-    grid-area: horizontal-box;
-    background-color: #f4f4f4; /* Light background color */
-    border: 1px solid #ddd; /* Border around the box */
-    border-radius: 8px; /* Rounded corners */
-    padding: 20px; /* Space inside the box */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
-    text-align: center; /* Center text inside the box */
-    max-width: 200px; /* Limit width */
-    width: 100%; /* Ensure it takes full available width */
+.grid {
+    background: hsl(0, 0%, 0%);
+    width: 100%;
+    max-width: 1100px;
+    height: 600px;
+    display: grid;
+    gap: 1vw;
+    padding: 1vw;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+    "hero hero hero hero aside2 aside2"
+    "aside3 aside3 aside4 aside4 aside2 aside2";
+    margin: 0 auto; /* Center the grid horizontally */
 }
 
-.vertical-box {
-    grid-area: vertical-box;
-    background-color: #f4f4f4; /* Light background color */
-    border: 1px solid #ddd; /* Border around the box */
-    border-radius: 8px; /* Rounded corners */
-    padding: 20px; /* Space inside the box */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
-    text-align: center; /* Center text inside the box */
-    max-width: 150px; /* Limit width */
-    width: 100%; /* Ensure it takes full available width */
+.grid-3x2 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+    width: 100%;
+    max-width: 200px; /* Adjust this as needed */
+    margin: left; /* Center the grid */
 }
 
-.square-box {
-    background-color: #f4f4f4; /* Light background color */
-    border: 1px solid #ddd; /* Border around the box */
-    border-radius: 8px; /* Rounded corners */
-    padding: 20px; /* Space inside the box */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
-    text-align: center; /* Center text inside the box */
-    width: 100%; /* Ensure it takes full available width */
-    height: 100px; /* Set a specific height */
+.grid-3x2 .item {
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px; /* Adjust the height as needed */
+    border: 2px solid #464545;
+    border-radius: 5px;
 }
 
-/* Ensure square boxes are square */
-.square-box {
-    aspect-ratio: 1 / 1; /* Ensure the height is equal to the width */
+.box1 {
+    border-radius: 20px;
+    width: 150px;
+    height: 20px; /* Increased height to better accommodate text */
+    display: flex; /* Enable Flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    text-align: center; /* Center text inside the h2 element */
+    background-color: #353535; /* Background color */
+    color: #ffffff; /* Text color for better contrast */
+    padding: 5px; /* Optional: padding inside the box */
 }
 
-/* Specify grid areas for the square boxes */
-.square-box1 {
-    grid-area: square-box1; /* Use the grid area name for positioning */
+
+
+
+
+
+.item {
+    border: 2px solid #000000;
+    border-radius:30px;
+    font-family: 'Outfit', sans-serif;
+    padding-left: 20px;
+    
+}
+  
+.grid .item:nth-child(1) {
+    grid-area: hero;
+    background: hsl(0, 0%, 13%);
+
+}
+.grid .item:nth-child(2) {
+    grid-area: aside2;
+    background: hsl(0, 0%, 13%);
+}
+  
+.grid .item:nth-child(3) {
+    grid-area: aside3;
+    background: hsl(0, 0%, 13%);
+}
+.grid .item:nth-child(4) {
+    grid-area: aside4;
+    background: hsl(0, 0%, 13%);
+}
+  
+.inbox1 {
+    font-family: 'Outfit', sans-serif;
+    color: rgb(0, 0, 0);
 }
 
-.square-box2 {
-    grid-area: square-box2; /* Use the grid area name for positioning */
+.inbox2 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 2em; /* Adjust font size for smaller screens */
+    margin-bottom: 20px;         /* Add space below the heading */
+    color: rgb(255, 255, 255);
+}
+
+.inbox3 {
+    font-family: 'Outfit', sans-serif;
+    max-width: 600px; /* Match the headline's width */
+    font-size: 1em; /* Adjust the font size as needed */
+    line-height: 1.5; /* Adjust line height for better readability */
+    font-weight: 300;
+    color: rgb(255, 255, 255);
+}
+
+.box2 {
+    border-radius: 20px;
+    margin-top: 20px;
+    width: 90px;
+    height: 20px; /* Increased height to better accommodate text */
+    display: flex; /* Enable Flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    text-align: center; /* Center text inside the h2 element */
+    background-color:#FFF; /* Background color */
+    color: #fff; /* Text color for better contrast */
+    padding: 5px; /* Optional: padding inside the box */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.box2:hover {
+    transform: scale(1.1); /* Slightly increase the size of the button */
+    background-color: #ddd; /* Change the background color on hover */
+}
+
+.box2:active {
+    transition: transform 0.1s ease, background-color 0.3s ease; /* Faster scale on click */
+    transform: scale(0.9); /* Slightly decrease the size of the button on click */
+    background-color: #ccc; /* Change the background color on click */
+}
+
+
+.productbtn {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: 20px;
+    margin-bottom: 15px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1em; /* Adjust the font size as needed */
+    font-weight: 500;
+    border-radius: 15px;
+    background: #FFF;
+    display: flex;
+    width: 100px;
+    height: 30px;
+    padding: 12px 22px;
+    justify-content: center;
+    align-items: right;
+    align-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: none; /* Remove any border that could appear as shadow */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.productbtn:hover {
+    transform: scale(1.1); /* Slightly increase the size of the button */
+    background-color: #ddd; /* Change the background color on hover */
+}
+
+.productbtn:active {
+    transition: transform 0.1s ease, background-color 0.3s ease; /* Faster scale on click */
+    transform: scale(0.9); /* Slightly decrease the size of the button on click */
+    background-color: #ccc; /* Change the background color on click */
+}
+
+.productbtn1 {
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: 20px;
+    margin-bottom: 15px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1em; /* Adjust the font size as needed */
+    font-weight: 500;
+    border-radius: 15px;
+    background: #FFF;
+    display: flex;
+    width: 100px;
+    height: 30px;
+    padding: 12px 22px;
+    justify-content: center;
+    align-items: right;
+    align-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: none; /* Remove any border that could appear as shadow */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.productbtn1:hover {
+    transform: scale(1.1); /* Slightly increase the size of the button */
+    background-color: #ddd; /* Change the background color on hover */
+}
+
+.productbtn1:active {
+    transition: transform 0.1s ease, background-color 0.3s ease; /* Faster scale on click */
+    transform: scale(0.9); /* Slightly decrease the size of the button on click */
+    background-color: #ccc; /* Change the background color on click */
+}
+
+.timeline {
+    position: relative;
+    margin-left: 20px;
+    margin-top: 50px;
+    border-left: 1px solid #444; /* Line connecting the dots */
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -10px;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background-color: #444; /* Inactive dot color */
+    border-radius: 50%;
+    border: 2px solid #2B2B2B; /* Border to match the background */
+}
+
+.timeline-dot.active {
+    background-color: #FFF; /* Active dot color */
+    border-color: #2B2B2B;
+}
+
+.timeline-content {
+    padding-left: 30px; /* Space between dot and content */
+}
+
+.timeline-content h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.timeline-content p {
+    margin: 5px 0 0;
+    font-size: 0.9em;
+    color: #AAA; /* Slightly lighter text for the description */
 }
 
 
@@ -368,133 +564,8 @@ html {
     background: #999; /* Color when hovering over the scrollbar handle */
 }
 
-
-/* Media Queries for Responsiveness */
-@media (max-width: 768px) {
-    .logo {
-        font-size: 1.2em; /* Smaller font size */
-    }
-
-    .navigation a {
-        font-size: 12px; /* Smaller font size */
-        margin-left: 10px; /* Smaller margin */
-    }
-
-    .light-source {
-        width: 100px; /* Smaller light source */
-        height: 100px; /* Smaller light source */
-        filter: blur(50px); /* Adjust blur effect */
-    }
-
-    .wrapper {
-        left: 50px; /* Adjust position for smaller screens */
-        top: 150px; /* Adjust position for smaller screens */
-    }
-
-    .headline {
-        font-size: 1.5em; /* Smaller font size */
-        margin-bottom: 15px; /* Adjust margin */
-    }
-
-    .para {
-        font-size: 0.9em; /* Smaller font size */
-    }
-
-    .learnmorebtn {
-        width: 120px; /* Smaller button width */
-        height: 40px; /* Smaller button height */
-        font-size: 0.9em; /* Smaller font size */
-        padding: 10px 20px; /* Adjust padding */
-    }
-
-    .contactbtn {
-        width: 90px; /* Smaller button width */
-        height: 35px; /* Smaller button height */
-        font-size: 0.8em; /* Smaller font size */
-        padding: 8px 16px; /* Adjust padding */
-        margin-left: 20px; /* Adjust margin for smaller screens */
-    }
-
-    .image {
-        position: absolute; /* Stack images on top of each other */
-        max-width: 10%; /* Ensure the image does not exceed the wrapper's width */
-        height: auto; /* Adjust if needed */
-        opacity: 0; /* Start hidden */
-        visibility: hidden; /* Ensure hidden images are not clickable */
-        transition: opacity 1s ease-in-out, visibility 1s ease-in-out; /* Smooth transition for opacity and visibility */
-        margin-bottom: 10px; /* Add space between images */
-        border-radius: 15px;
-    }
-    
-    .image.active {
-        opacity: 1; /* Show the active image */
-        visibility: visible; /* Make the active image visible */
-        max-width: 10%; /* Ensure the image does not exceed the wrapper's width */
-        height: auto; /* Maintain aspect ratio */
-        margin-bottom: 10px; /* Add space between images */
-        border-radius: 15px;
-    }
-
-    .indicator {
-        width: 5px;
-        height: 5px;
-        border-radius: 50%;
-        background-color: #555; /* Grey dark for non-selected */
-        margin: 0 5px;
-    }
-}
-
-@media (max-width: 480px) {
-    header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .navigation a {
-        font-size: 10px; /* Smaller font size */
-        margin-left: 5px; /* Smaller margin */
-    }
-
-    .light-source {
-        width: 80px; /* Smaller light source */
-        height: 80px; /* Smaller light source */
-        filter: blur(40px); /* Adjust blur effect */
-        top: -10px; /* Adjust position */
-        right: 0px; /* Adjust position */
-    }
-
-    .wrapper {
-        left: 20px; /* Adjust position for smaller screens */
-        top: 100px; /* Adjust position for smaller screens */
-    }
-
-    .headline {
-        font-size: 1.2em; /* Smaller font size */
-        margin-bottom: 10px; /* Adjust margin */
-    }
-
-    .para {
-        font-size: 0.8em; /* Smaller font size */
-    }
-
-    .learnmorebtn {
-        width: 100px; /* Even smaller button width */
-        height: 35px; /* Even smaller button height */
-        font-size: 0.8em; /* Smaller font size */
-        padding: 8px 12px; /* Adjust padding */
-    }
-
-    .contactbtn {
-        width: 80px; /* Even smaller button width */
-        height: 30px; /* Even smaller button height */
-        font-size: 0.7em; /* Smaller font size */
-        padding: 6px 12px; /* Adjust padding */
-        margin-left: 10px; /* Adjust margin for smaller screens */
-    }
-}
-
 .wrapper-container2 {
-    padding-top: 80px;
+    padding-top: 180px;
     display: flex;
     flex-direction: column; /* Arrange items in a column */
     align-items: center; /* Center items horizontally */
@@ -502,6 +573,7 @@ html {
     margin: 0 auto;
     max-width: 500px; /* Adjust the max-width as needed */
     min-height: 100vh; /* Ensure it takes at least the full height of the viewport */
+    margin-bottom: 200px;
 }
 .contact-form {
     width: 100%;
@@ -581,4 +653,199 @@ button[type="submit"]:active {
     transition: transform 0.1s ease, background-color 0.3s ease; /* Faster scale on click */
     transform: scale(0.9); /* Slightly decrease the size of the button on click */
     background-color: #ccc; /* Change the background color on click */
+}
+
+/* For screens smaller than 1024px (Tablet landscape and below) */
+@media (max-width: 1024px) {
+    .grid-container {
+        grid-template-columns: 1fr 1fr; /* 2 columns */
+        grid-template-rows: repeat(3, 1fr); /* 3 rows */
+        gap: 8px; /* Adjust gap for smaller screens */
+    }
+
+    .grid-item {
+        padding: 15px; /* Adjust padding for smaller screens */
+    }
+
+    .inbox2 {
+        font-size: 1em; /* Adjust font size for smaller screens */
+    }
+    
+    .inbox3 {
+        font-size: 0.7em; /* Adjust font size for smaller screens */
+    }
+
+    .title {
+        font-size: 2em;          /* Adjust font size as needed */
+    }
+
+    .form-group {
+        font-size: 0.7em; /* Adjust the font size as needed */
+    }
+
+    .contact-form h2 {
+        font-size: 1em; /* Adjust the font size as needed */
+    }
+
+    .contact-form {
+        width: 50%;
+        padding-top: 5px;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 30px;
+        border-radius: 10px;
+    }
+
+    .timeline-content h3 {
+        font-size: 0.7em;
+    }
+    
+    .timeline-content p {
+        font-size: 0.5em;
+    }
+
+    .para {
+        font-size: 0.6em; /* Smaller font size */
+    }
+
+    .logo {
+        width: 100px; /* Set the width of the logo */
+    }
+}
+
+/* For screens smaller than 768px (Tablet portrait and below) */
+@media (max-width: 768px) {
+
+    .grid-container {
+        grid-template-columns: 1fr; /* 1 column */
+        grid-template-rows: repeat(6, 1fr); /* 6 rows */
+        gap: 6px; /* Adjust gap for smaller screens */
+    }
+
+    .grid-item {
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+
+    .logo {
+        font-size: 1.2em; /* Smaller font size */
+    }
+
+    .navigation a {
+        font-size: 12px; /* Smaller font size */
+        margin-left: 10px; /* Smaller margin */
+    }
+
+    .light-source {
+        width: 100px; /* Smaller light source */
+        height: 100px; /* Smaller light source */
+        filter: blur(50px); /* Adjust blur effect */
+    }
+
+    .wrapper {
+        left: 50px; /* Adjust position for smaller screens */
+        top: 150px; /* Adjust position for smaller screens */
+    }
+
+    .headline {
+        font-size: 1.5em; /* Smaller font size */
+        margin-bottom: 15px; /* Adjust margin */
+    }
+
+    .learnmorebtn {
+        width: 120px; /* Smaller button width */
+        height: 40px; /* Smaller button height */
+        font-size: 0.9em; /* Smaller font size */
+        padding: 10px 20px; /* Adjust padding */
+    }
+
+    .contactbtn {
+        width: 90px; /* Smaller button width */
+        height: 35px; /* Smaller button height */
+        font-size: 0.8em; /* Smaller font size */
+        padding: 8px 16px; /* Adjust padding */
+        margin-left: 20px; /* Adjust margin for smaller screens */
+    }
+
+    .image {
+        position: absolute; /* Stack images on top of each other */
+        max-width: 10%; /* Ensure the image does not exceed the wrapper's width */
+        height: auto; /* Adjust if needed */
+        opacity: 0; /* Start hidden */
+        visibility: hidden; /* Ensure hidden images are not clickable */
+        transition: opacity 1s ease-in-out, visibility 1s ease-in-out; /* Smooth transition for opacity and visibility */
+        margin-bottom: 10px; /* Add space between images */
+        border-radius: 15px;
+    }
+    
+    .image.active {
+        opacity: 1; /* Show the active image */
+        visibility: visible; /* Make the active image visible */
+        max-width: 10%; /* Ensure the image does not exceed the wrapper's width */
+        height: auto; /* Maintain aspect ratio */
+        margin-bottom: 10px; /* Add space between images */
+        border-radius: 15px;
+    }
+
+    .indicator {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background-color: #555; /* Grey dark for non-selected */
+        margin: 0 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid-container {
+        grid-template-columns: 1fr; /* Still 1 column */
+        grid-template-rows: repeat(6, 1fr); /* 6 rows */
+        gap: 4px; /* Adjust gap for even smaller screens */
+    }
+
+    .grid-item {
+        padding: 8px; /* Adjust padding for mobile devices */
+    }
+    
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navigation a {
+        font-size: 10px; /* Smaller font size */
+        margin-left: 5px; /* Smaller margin */
+    }
+
+    .light-source {
+        width: 80px; /* Smaller light source */
+        height: 80px; /* Smaller light source */
+        filter: blur(40px); /* Adjust blur effect */
+        top: -10px; /* Adjust position */
+        right: 0px; /* Adjust position */
+    }
+
+    .wrapper {
+        left: 20px; /* Adjust position for smaller screens */
+        top: 100px; /* Adjust position for smaller screens */
+    }
+
+    .headline {
+        font-size: 1.2em; /* Smaller font size */
+        margin-bottom: 10px; /* Adjust margin */
+    }
+
+    .learnmorebtn {
+        width: 100px; /* Even smaller button width */
+        height: 35px; /* Even smaller button height */
+        font-size: 0.8em; /* Smaller font size */
+        padding: 8px 12px; /* Adjust padding */
+    }
+
+    .contactbtn {
+        width: 80px; /* Even smaller button width */
+        height: 30px; /* Even smaller button height */
+        font-size: 0.7em; /* Smaller font size */
+        padding: 6px 12px; /* Adjust padding */
+        margin-left: 10px; /* Adjust margin for smaller screens */
+    }
 }
